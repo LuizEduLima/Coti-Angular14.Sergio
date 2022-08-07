@@ -1,0 +1,62 @@
+<h5>Cadastro de contatos</h5>
+
+
+<div class="alert alert-success fad out" role="alert" *ngIf="mensagem">
+    {{mensagem}}
+</div>
+
+
+<form class="mt-3" [formGroup]="formCadastro" (ngSubmit)="onSubmit()">
+    <div class="row mb-2">
+
+
+        <div class="col-md-6">
+            <label>Nome do contato:</label>
+            <input type="text" class="form-control" formControlName="nome">
+            <div class="text-danger" *ngIf="form.nome.touched && form.nome.invalid">
+                <div *ngIf="form.nome.errors.required">
+                    Informe o nome do contato
+                </div>
+                <div *ngIf="form.nome.errors.minlength">
+                    O nome deve possuir no mínimo 6 Caracteres
+                </div>
+                <div *ngIf="form.nome.errors.maxlength">
+                    O nome deve possuir no máximo 150 Caracteres
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <label>Email:</label>
+            <input type="text" class="form-control" formControlName="email">
+            <div class="text-danger" *ngIf="form.email.touched && form.email.invalid">
+                <div *ngIf="form.email.errors.required">
+                    Informe um e-mail.
+                </div>
+                <div *ngIf="form.email.errors.email">
+                    Informe um e-mail válido.
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-3">
+            <label>Telefone:</label>
+            <input type="text" class="form-control" formControlName="telefone" mask="(00) 0 0000-0000">
+            <div class="text-danger" *ngIf="form.telefone.touched && form.telefone.invalid">
+                <div *ngIf="form.telefone.errors.required">
+                    Informe o número do telefone.
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row mb-2">
+        <div class="col-md-12">
+            <input type="submit" value="Realizar cadastro" class="btn btn-success" />
+        </div>
+    </div>
+</form>
