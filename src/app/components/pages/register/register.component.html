@@ -1,0 +1,52 @@
+<div class="row mt-4 ">
+    <div class="col-md-4 offset-4">
+        <div class="card">
+
+            <div class="card-body">
+                <div class="text-center">
+                    <h5 class="card-title"> Criar conta de usuário</h5>
+                    <p class="card-subtitle">Preencha os campos para criar sua conta</p>
+                </div>
+                <form class="mt-1" [formGroup]="formRegister" (ngSubmit)="onSubmit()">
+                    <div class="mb-2">
+                        <label>Nome:</label>
+                        <input type="text" class="form-control" placeholder="Digite seu nome aqui!"
+                            formControlName="nome">
+                    </div>
+                    <div class="mb-2">
+                        <label>Email de acesso:</label>
+                        <input type="text" class="form-control" placeholder="Digite seu e-mail aqui!"
+                            formControlName="email">
+                    </div>
+
+                    <div class="mb-2">
+                        <label>Senha:</label>
+                        <input type="text" class="form-control" placeholder="Digite sua senha aqui!"
+                            formControlName="senha">
+                    </div>
+                    <div class="mb-2">
+                        <label>Confirme sua senha:</label>
+                        <input type="text" class="form-control" placeholder="Digite sua senha aqui!"
+                            formControlName="senhaConfirmacao">
+                        <span *ngIf="!form.senhaconfirmacao.errors.matchpassword">
+                            Senhas não conferem, por favor verifique.
+                        </span>
+                    </div>
+
+
+                    <div class="mb-2 d-grid">
+
+                        <input type="submit" class="btn btn-primary btn-sm" value="Acessar agenda">
+                    </div>
+                    <div class="mb-2 d-grid">
+                        <a routerLink="/acessar-conta" class="btn btn-light btn-sm">
+                            Já possui conta? <strong>Acesse aqui!</strong>
+                        </a>
+                    </div>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
